@@ -1,0 +1,163 @@
+/* General Page Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    background-color: #141414;
+}
+
+/* Magical Background */
+body::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1513466395099-73a0eaf7a4c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fG1hZ2ljJTIwdGV4dHVyZXxlbnwwfHx8fDE2NjU4NDY2Njg&ixlib=rb-1.2.1&q=80&w=1080') no-repeat center center/cover;
+    z-index: -1;
+    opacity: 0.6;
+    animation: magical-background 20s infinite linear;
+}
+
+/* Animation to make the background feel magical */
+@keyframes magical-background {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+/* Floating Magical Particles */
+@keyframes sparkle {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.5; }
+    50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+    100% { transform: translateY(0) rotate(360deg); opacity: 0.5; }
+}
+
+.sparkle {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 5px;
+    height: 5px;
+    animation: sparkle 3s ease-in-out infinite;
+}
+
+/* Quiz Container Styling */
+.quiz-container {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    width: 400px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+/* Smooth Fade-in Animation for Questions */
+.question-container {
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Buttons and Options Styling */
+.options {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #6a5acd;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease;
+    width: 45%; /* Make buttons fit side by side */
+}
+
+button:hover {
+    background-color: #483d8b;
+    transform: scale(1.05);
+}
+
+/* Correct/Incorrect button feedback */
+.option.correct {
+    background-color: #28a745 !important; /* Green for correct */
+}
+
+.option.incorrect {
+    background-color: #dc3545 !important; /* Red for incorrect */
+}
+
+/* Next Button */
+#next-button {
+    margin-top: 20px;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+#next-button.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Results Section */
+#result h2 {
+    color: #28a745;
+    animation: popUp 1s ease-in-out;
+}
+
+@keyframes popUp {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Restart Button */
+#result button {
+    margin-top: 15px;
+    background-color: #ff6347;
+}
+
+#result button:hover {
+    background-color: #e55337;
+}
+
+/* Magical Font Style */
+h1, h2 {
+    font-family: 'Harry P', sans-serif;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+/* Adding a more "magical" font style */
+@import url('https://fonts.googleapis.com/css2?family=Fondamento&display=swap');
+
+/* Adding text in the lower-right corner */
+#mate-text {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 18px;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    font-weight: bold;
+}
+button:hover {
+    background-color: #483d8b;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
